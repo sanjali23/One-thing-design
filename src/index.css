@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap'); */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.carousel-number {
+  display: none;
+}
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 300px; /* Adjust the height as needed */
+}
+
+.carousel-item {
+  flex: 0 0 calc(33.33% - 1rem);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0.6;
+}
+
+.center-item {
+  flex: 0 0 calc(40% - 1rem);
+  transform: scale(1.1);
+  opacity: 1;
+}
+
