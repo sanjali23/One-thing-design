@@ -50,12 +50,21 @@ const Rewards = () => {
     },
     responsive: [
       {
-        breakpoint: 768,
+        breakpoint: 1024,
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 3,
+          centerPadding: "100px",
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "130px",
+          slidesToShow: 1,
         },
       },
       {
@@ -71,17 +80,17 @@ const Rewards = () => {
   };
 
   return (
-    <div className="px-4 sm:px-4 py-1 sm:py-1 lg:px-0 md:px-0 lg:py-0 md:py-0">
-      {/* <div className=" md:bg-peach lg:bg-peach sm:bg-white bg-white flex md:flex-row  items-center justify-center  lg:flex-row sm:flex-col flex-col gap-2 w-full md:py-10 lg:py-10 "> */}
+    <div className="px-0 sm:px-0 py-1 sm:py-1 lg:px-0 md:px-0 lg:py-0 md:py-0">
       <div className="md:bg-peach lg:bg-peach sm:bg-white bg-white flex md:flex-row lg:flex-row sm:flex-col flex-col gap-2 p-8 px-12 ">
-        {/* <div className="bg-peach md:w-1/2 gap-4 lg:w-1/2 border border-red-700 sm:w-full w-full lg:order-2 md:order-2 px-5 flex  md:py-0 lg:py-0"> */}
-        <div className="lg:w-1/2 order-2 ">
+        <div className="lg:w-1/2 order-2 md:w-1/2 sm:w-full w-full  ">
           <Slider {...settings}>
             {images.map((image, i) => (
               <div
                 key={i}
                 className={` p-0 h-full relative border  ${
-                  i === currentIndex ? " w-20 p-0" : "w-0"
+                  i === currentIndex
+                    ? " lg:w-20 sm:w-20 w-20 md:w-36 p-0"
+                    : "w-0"
                 }`}
               >
                 <div className="rounded-xl ">
@@ -89,7 +98,7 @@ const Rewards = () => {
                     key={i}
                     src={image.img}
                     alt=""
-                    className={`w-auto h-96 overflow-hidden object-cover mx-auto z-0 ${
+                    className={`w-auto rounded-xl lg:h-96 md:h-80 sm:h-72 h-72 overflow-hidden object-cover mx-auto z-0 ${
                       i === currentIndex ? "scale-100" : "scale-75"
                     }`}
                   />
@@ -97,14 +106,21 @@ const Rewards = () => {
                   <div
                     className={
                       i === currentIndex
-                        ? "text-white items-center flex gap-4 absolute right-28 text-xl top-64  bottom-0 z-20"
-                        : "text-white items-center flex gap-4 absolute right-28 text-lg top-48  bottom-0 z-20"
+                        ? "text-white items-center flex gap-4 absolute  text-sm p-2   left-0 right-32 mx-auto w-fit bottom-0 z-20"
+                        : "text-white items-center flex gap-4 absolute   text-xs md:p-14 lg:p-10  sm:p-10 p-10  left-0 right-16 mx-auto w-fit  bottom-4 z-20"
                     }
                   >
-                    <img className="w-16" src={image.icon} />
+                    <img
+                      className="lg:w-12 md:w-8 sm:w-8 w-8"
+                      src={image.icon}
+                    />
                     <div className="text-left">
-                      <p>{image.desc1}</p>
-                      <p>{image.desc2}</p>
+                      <p className="whitespace-nowrap lg:flex sm:flex flex md:hidden">
+                        {image.desc1}
+                      </p>
+                      <p className="whitespace-nowrap lg:flex sm:flex  flex md:hidden">
+                        {image.desc2}
+                      </p>
                     </div>
                   </div>
                 </div>
